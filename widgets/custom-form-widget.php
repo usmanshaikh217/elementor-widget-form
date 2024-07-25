@@ -111,7 +111,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 							$author_email = get_post_meta(get_the_ID(), 'author_email', true); ?>
 								<div class="col-md-6">
 									<div class="card" style="width: 18rem;">
-										<img src="/wp-content/uploads/2024/07/Solar-gold-packaing-design-01.jpg" class="card-img-top" alt="...">
+										<?php if(has_post_thumbnail()) { ?>
+											<img src="<?php the_post_thumbnail_url(); ?>" class="card-img-top" alt="<?php the_title(); ?>">
+										<?php } else { ?>
+											<img src="https://codewithusman.itechavengers.com/wp-content/uploads/2024/07/logo-2.png" class="card-img-top" alt="<?php the_title(); ?>">
+										<?php } ?>
 										<div class="card-body">
 											<h5 class="card-title"><?php the_title(); ?></h5>
 											<p class="card-text"><?php the_content() ?></p>
